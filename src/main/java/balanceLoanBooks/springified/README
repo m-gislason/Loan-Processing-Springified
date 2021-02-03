@@ -1,0 +1,48 @@
+Goals
+You are provided with a list of facilities and covenants, as well as a stream of loans that we would like to fund with those facilities.
+Your task is to write a program that consumes loans from the stream and assigns each loan to a
+facility while respecting each facility’s covenants.
+
+Input
+An input data set will consist of four CSV files, describing the facilities, banks, covenants, and loans, respectively.
+These files are described in the following sections. You will be given two data sets, a small data set (in the folder ‘small’)
+for manually verifying your understanding of the problem, along with a large data set (in the folder ‘large’) f
+or more rigorously stress-testing your program. The folder ‘small’ will also contain the solution files ‘assignments.csv’ and ‘yields.csv’.
+Note that for convenience, the code to read the files and create repository classes has been already added and you can simply use the *Repo classes
+Do look at the Repo classes to understand how file reading happens and the abstract class-concrete class structure used.
+
+facilities.csv
+Each row in this file describes a single facility.
+
+covenants.csv
+Each row in this denormalized file represents at least one covenant that we have with a bank.
+If a row contains both a max_default_likelihood and a banned_state , they should be treated as separate covenants.
+
+Calculating Loan Yields
+The expected yield of a loan funded by a facility is the amount of interest that we expect to earn from the loan
+(taking into account the chance of a default), minus the expected loss from a default, minus the interest that we pay to to
+the bank to use their facility:
+
+expected_yield =
+(1 – default_likelihood) * loan_interest_rate * amount
+– default_likelihood * amount
+– facility_interest_rate * amount
+
+Guarantees
+Following are some assumptions and guarantees:
+1. We can fund all the loans by processing them in the order that they are received
+and assigning each loan to the cheapest facility that can accommodate that loan legally
+(i.e. satisfying all the required covenants and not exceeding the facility’s capacity).
+Note: depending on your ordering of facilities with equal interest rate, you may be unable to
+assign the last loan (#425) of the large data set. This is OK.
+2. The expected yield of funding any loan with any facility is always nonnegative.
+Deliverables Your program should consume the input data and attempt to fund each loan with a facility.
+Unfunded loans are ignored by our system — they will earn no interest, nor will they lose money if they default.
+Your program should be streaming , meaning it that it should process loans in the order that they are received
+and not use future loans to determine how the current loan should be funded.
+
+
+Your program should produce output files: assignments.csv
+Each row in this file describes a loan assignment.
+
+

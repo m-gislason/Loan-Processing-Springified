@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "assignments-output-file-path",
+      "type": "java.lang.String",
+      "description": "Description for assignments-output-file-path."
+  }
+] }

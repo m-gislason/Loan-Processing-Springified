@@ -1,0 +1,64 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'application'
+    id 'java'
+}
+
+group = 'practice-project'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    test {
+        java.srcDir file('src/test/java/')
+        resources.srcDir 'src/test/resources'
+        resources.srcDir 'src/main/resources'
+    }
+}
+
+reporting.baseDir = "$buildDir/reports"
+testResultsDirName = "$buildDir/test-results"
+
+task showDirs {
+    doLast {
+        logger.quiet(rootDir.toPath().relativize(project.reportsDir.toPath()).toString())
+        logger.quiet(rootDir.toPath().relativize(project.testResultsDir.toPath()).toString())
+    }
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.testng:testng:6.14.3'
+    implementation 'junit:junit:4.12'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compile group: 'com.google.guava', name: 'guava', version: '18.+'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.9.+'
+    compile("org.slf4j:slf4j-api:1.7.+")
+    compile('ch.qos.logback:logback-classic:1.1.11')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaExec) {
+    systemProperties System.properties
+}

@@ -1,0 +1,33 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :bootRunMainClassName UP-TO-DATE
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-02-02 14:37:46.573  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : Starting DemoSpringifiedApplication using Java 1.8.0_271 on C02DR9RKMD6R.grubhub.local with PID 6734 (/Users/mgislason/Desktop/balance-loan-books-springified/build/classes/java/main started by mgislason in /Users/mgislason/Desktop/balance-loan-books-springified)
+2021-02-02 14:37:46.574  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : No active profile set, falling back to default profiles: default
+2021-02-02 14:37:46.606  INFO 6734 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-02-02 14:37:46.952  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : Starting application, creating loan processor
+
+2021-02-02 14:37:47.034  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : Loan Loan(id=420, amount=73539, interestRate=0.25, defaultLikelihood=0.04, state=IL) could not be assigned, no assignment written to file
+2021-02-02 14:37:47.037  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : 424 of 425 loans were successfully assigned
+2021-02-02 14:37:47.037  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : All successful loan assignments were persisted to myOutput/myAssignments.csv
+2021-02-02 14:37:47.041  INFO 6734 --- [  restartedMain] p.d.dependencies.LoanProcessor           : Facility yields were successfully persisted to myOutput/myYields.csv
+2021-02-02 14:37:47.097  INFO 6734 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-02-02 14:37:47.120  INFO 6734 --- [  restartedMain] p.d.DemoSpringifiedApplication           : Started DemoSpringifiedApplication in 0.8 seconds (JVM running for 1.066)
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/6.7.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+4 actionable tasks: 1 executed, 3 up-to-date
